@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const ItemSchema = new Schema({
     name: {
         type: String,
@@ -8,7 +9,7 @@ const ItemSchema = new Schema({
     },
     status: {
         type: Boolean,
-        required: [ true, 'Item is missing a status' ]
+        default: false
     },
     description: String,
     unitPrice: {
@@ -19,8 +20,9 @@ const ItemSchema = new Schema({
         required: [ true, 'Item is missing an unit price' ]
     },
     category: {
-        type: String,
-        required: [ true, 'Item is missing a category' ]
+        type: Schema.Types.ObjectId,
+        required: [ true, 'Item is missing a category' ],
+        ref: 'Category'
     }
 })
 

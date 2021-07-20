@@ -4,21 +4,32 @@ const Schema = mongoose.Schema;
 const OrderSchema = new Schema({
     status: {
         type: Boolean,
+        required: [ true, 'Order is missing a status'],
         default: false
     },
     takeAway: {
         type: Boolean,
+        required: [ true, 'Order is missing a take away status'],
         default: true
     },
     pickupTime: {
         type: Date,
-        default: Date.now
+        required: [ true, 'Order is missing a pickup time'],
+        default: new Date()
     },
     instruction: {
         type: String
     },
+    orderItems: [
+        {
+            type: Schema.Types.ObjectId,
+            required: [ true, 'Order is missing items'],
+            ref: 'Item'
+        }
+    ],
     UserId: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     subCost: {
         type: NumberDecimal('0.01'),
@@ -26,6 +37,7 @@ const OrderSchema = new Schema({
     },
     serviceCharge: {
         type: NumberDecimal('0.01'),
+        required: [ true, 'Order is missing a service charge'],
         default: 0.3
     }
 }, {

@@ -1,0 +1,22 @@
+@host = http://localhost:5000
+
+get {{host}}/categories/
+
+###
+post {{host}}/categories/
+Content-Type: application/json
+
+{
+    "name": "Drink"
+}
+
+###
+put {{host}}/categories/60f6cfb2ee6f192484f999f7
+Content-Type: application/json
+
+{
+    "name": "Drink"
+}
+
+###
+delete {{host}}/categories/60f6cdcb3907ff237c7bf42c

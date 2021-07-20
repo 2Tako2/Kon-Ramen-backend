@@ -18,6 +18,10 @@ const UserSchema = new Schema({
         type: String,
         required: [ true, 'User is missing an email' ]
     },
+    order: {
+        type: Schema.Types.ObjectId,
+        ref: 'Order'
+    }
 }, {
     timestamps: true
 });
