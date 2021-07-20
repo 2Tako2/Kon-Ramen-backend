@@ -1,8 +1,19 @@
 const express = require('express');
+const mongoose = require('mongoose');
 require('dotenv').config({path: './.env'});
 
 
 const app = express();
+
+const uri = process.env.ATLAS_URI;
+
+mongoose.connect(uri, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+})
+    .then(() => console.log('Connected to MongoAtlas'))
+    .catch(err => console.log(err))
+
 
 app.listen(process.env.PORT, (err) =>{
 
