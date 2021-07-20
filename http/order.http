@@ -1,0 +1,25 @@
+@host = http://localhost:5000
+
+### Get orders
+get {{host}}/orders/
+
+### Get order by id
+get {{host}}/orders/
+
+### Create order
+post {{host}}/order/
+Content-Type: application/json
+
+{
+    "completed": false,
+    "takeAway": true,
+    "instruction": "i am hungry af",
+    "orderItems": [
+        {"60f6f2fef98e753b5080bf27"},
+        {"60f6f3c59dfca33baa0e1d0d"}
+    ],
+    "subCost": 40.02,
+}
+
+### Delete order by id
+delete {{host}}/orders/

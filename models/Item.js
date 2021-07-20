@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Category = require('./Category.js');
 
 
 const ItemSchema = new Schema({
@@ -7,7 +8,7 @@ const ItemSchema = new Schema({
         type: String,
         required: [ true, 'Item is missing a name' ]
     },
-    status: {
+    published: {
         type: Boolean,
         default: false
     },
@@ -24,6 +25,13 @@ const ItemSchema = new Schema({
         required: [ true, 'Item is missing a category' ],
         ref: 'Category'
     }
+})
+
+ItemSchema.post('save', async (item, next) => {
+    const category = await Category.findOne({_id: item.category});
+    category.products.push(item._id);
+    category.save();
+    next();
 })
 
 module.exports = mongoose.model('Item', ItemSchema)

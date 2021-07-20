@@ -1,8 +1,10 @@
 @host = http://localhost:5000
 
+
+###  Get categories
 get {{host}}/categories/
 
-###
+### Create category
 post {{host}}/categories/
 Content-Type: application/json
 
@@ -10,7 +12,7 @@ Content-Type: application/json
     "name": "Drink"
 }
 
-###
+### Update category by id
 put {{host}}/categories/60f6cfb2ee6f192484f999f7
 Content-Type: application/json
 
@@ -18,5 +20,5 @@ Content-Type: application/json
     "name": "Drink"
 }
 
-###
+### Delete category by id
 delete {{host}}/categories/60f6cdcb3907ff237c7bf42c

@@ -1,0 +1,29 @@
+@host = http://localhost:5000
+
+get {{host}}/items/
+
+###
+post {{host}}/items/
+Content-Type: application/json
+
+{
+    "name": "Chicken Karage (8pc)",
+    "published": true,
+    "unitPrice": 8.5,
+    "description": "Japnese style fried Chicken",
+    "category": "60f6cdcb3907ff237c7bf42c"
+}
+
+###
+put {{host}}/items/60f6e4b5d1bf712d6d5d76e6
+Content-Type: application/json
+
+{
+    "name": "Shoyu Ramen",
+    "published": true,
+    "unitPrice": 15.50,
+    "category": "60f6cdb83907ff237c7bf42a"
+}
+
+###
+delete {{host}}/items/60f6e4b5d1bf712d6d5d76e6

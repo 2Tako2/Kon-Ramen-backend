@@ -21,9 +21,9 @@ mongoose.connect(uri, {
 .then(() => console.log('Connected to MongoAtlas'))
 .catch(err => console.log(err))
 
-// Import models
-const categoryRouter = require('./routes/category.js');
-app.use('/categories', categoryRouter);
+// Import router
+const router = require('./routes.js');
+app.use('/', router)
 
 // Server connection
 app.listen(process.env.PORT, (err) =>{

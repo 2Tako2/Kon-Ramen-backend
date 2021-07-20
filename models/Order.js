@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
-    status: {
+    completed: {
         type: Boolean,
-        required: [ true, 'Order is missing a status'],
+        required: [ true, 'Order is missing a completed status'],
         default: false
     },
     takeAway: {
@@ -32,11 +32,11 @@ const OrderSchema = new Schema({
         ref: 'User'
     },
     subCost: {
-        type: NumberDecimal('0.01'),
+        type: Number,
         required: [ true, 'Order is missing a sub cost']
     },
     serviceCharge: {
-        type: NumberDecimal('0.01'),
+        type: Number,
         required: [ true, 'Order is missing a service charge'],
         default: 0.3
     }
