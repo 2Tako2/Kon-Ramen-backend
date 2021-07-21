@@ -25,7 +25,7 @@ const createCategory = async (req, res) => {
 const updateCategory = async (req, res) => {
     const { id: _id } = req.params;
     const category = req.body;
-    if(!Mongoose.Types.ObjectId.isValid(_id)){
+    if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find category');
     };
 
@@ -39,10 +39,10 @@ const updateCategory = async (req, res) => {
 
 const deleteCategory = async (req, res) => {
     const { id: _id } = req.params;
-    if(!Mongoose.Types.ObjectId.isValid(_id)){
+    if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find category');
     };
-    await Category.findByIdAndRemove(id);
+    await Category.findByIdAndRemove(_id);
     res.json({ message: 'Successfully deleted category'});
 }
 

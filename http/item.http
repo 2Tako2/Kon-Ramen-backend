@@ -1,8 +1,10 @@
 @host = http://localhost:5000
 
+
+## Get items
 get {{host}}/items/
 
-###
+### Create item
 post {{host}}/items/
 Content-Type: application/json
 
@@ -14,16 +16,17 @@ Content-Type: application/json
     "category": "60f6cdcb3907ff237c7bf42c"
 }
 
-###
-put {{host}}/items/60f6e4b5d1bf712d6d5d76e6
+### Update item by id
+put {{host}}/items/60f6f3789dfca33baa0e1d06
 Content-Type: application/json
 
 {
-    "name": "Shoyu Ramen",
+    "name": "Kon Ramen",
     "published": true,
-    "unitPrice": 15.50,
-    "category": "60f6cdb83907ff237c7bf42a"
+    "unitPrice": 14.50,
+    "category": "60f6cdb83907ff237c7bf42a",
+    "description" : "Kon Ramen is our signiture ramen /nIt has our unique soup base"
 }
 
-###
-delete {{host}}/items/60f6e4b5d1bf712d6d5d76e6
+### Delete item by id
+delete {{host}}/items/60f787cfe0ec4815956a1593

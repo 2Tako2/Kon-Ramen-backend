@@ -24,7 +24,7 @@ const createItem = async (req, res) => {
 const updateItem = async (req, res) => {
     const { id: _id } = req.params;
     const item = req.body;
-    if (!Mongoose.Types.ObjectId.isValid(_id)){
+    if (!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find item');
     };
 
@@ -34,11 +34,11 @@ const updateItem = async (req, res) => {
 
 const deleteItem = async (req, res) => {
     const { id: _id } = req.params;
-    if (!Mongoose.Types.ObjectId.isValid(_id)){
+    if (!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find item');
     };
 
-    await Item.findByIdAndRemove(id);
+    await Item.findByIdAndRemove(_id);
     res.json({message: 'Successfully deleted item'});
 };
 

@@ -24,7 +24,7 @@ const OrderSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             required: [ true, 'Order is missing items'],
-            ref: 'Item'
+            ref: 'OrderItem'
         }
     ],
     UserId: {

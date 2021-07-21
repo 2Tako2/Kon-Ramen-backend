@@ -23,7 +23,7 @@ router.delete('/items/:id', deleteItem);
 const { getOrders, getOrder, createOrder, deleteOrder } = require('./controllers/orderController.js');
 
 router.get('/orders/', getOrders);
-router.get('/orders/', getOrder);
+router.get('/order/:id', getOrder);
 router.post('/order/', createOrder);
 router.delete('/orders/', deleteOrder);
 

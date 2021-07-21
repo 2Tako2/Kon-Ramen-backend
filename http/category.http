@@ -13,12 +13,12 @@ Content-Type: application/json
 }
 
 ### Update category by id
-put {{host}}/categories/60f6cfb2ee6f192484f999f7
+put {{host}}/categories/60f798d23e48ed1933043b61
 Content-Type: application/json
 
 {
-    "name": "Drink"
+    "name": "Drinks"
 }
 
 ### Delete category by id
-delete {{host}}/categories/60f6cdcb3907ff237c7bf42c
+delete {{host}}/categories/60f798d23e48ed1933043b61

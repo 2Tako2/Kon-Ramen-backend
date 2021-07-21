@@ -12,10 +12,10 @@ const getOrders = async (req, res) => {
 
 const getOrder = async (req, res) => {
     const {id: _id} = req.params;
-    if (!Mongoose.Types.ObjectId.isValid(_id)){
+    if (!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find order');
     }
-    const order = await Order.findById(id).populate('item');
+    const order = await Order.findById(_id).populate('item');
     res.json(order);
 }
 
@@ -32,11 +32,11 @@ const createOrder = async (req, res) => {
 
 const deleteOrder = async (req, res) => {
     const {id: _id} = req.params;
-    if (!Mongoose.Types.ObjectId.isValid(_id)){
+    if (!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find order');
     }
 
-    await Order.findByIdAndRemove(id);
+    await Order.findByIdAndRemove(_id);
     res.json({message: 'Successfully deleted order'})
 };
 
