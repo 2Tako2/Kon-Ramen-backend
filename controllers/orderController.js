@@ -18,11 +18,7 @@ const getOrder = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('Cannot find order');
     }
-    // const order = await Order.findById(_id).populate('item');
-    const order = await Order.findById(_id).populate({
-        path: "orderItems.orderItem",
-        model: "Item"
-    })
+    const order = await Order.findById(_id);
     res.json(order);
 }
 

@@ -21,22 +21,14 @@ const OrderSchema = new Schema({
     instruction: {
         type: String
     },
-    // orderItems: [
-    //     {
-    //         itemId: {
-    //             type: objectId,
-    //             ref: "item"
-    //         },
-    //         qty: Number
-    //     }
-    // ]
     orderItems: [
         {
-            orderItem: {
-                type: Schema.Types.ObjectId,
-                ref: "Item"
-            },
-            qty: Number,
+            itemName: String,
+            unitPrice: Number,
+            qty: {
+                type: Number,
+                min: 1
+            }
         }
     ],
     UserId: {

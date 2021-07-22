@@ -14,9 +14,6 @@ const ItemSchema = new Schema({
     },
     description: String,
     unitPrice: {
-        // type: Schema.Types.Decimal128,
-        // type: NumberDecimal('0.01'),
-        // type: mongoose.Decimal128,
         type: Number,
         required: [ true, 'Item is missing an unit price' ]
     },

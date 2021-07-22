@@ -16,16 +16,18 @@ Content-Type: application/json
     "instruction": "i am hungry af",
     "orderItems": [
         {
-            "orderItem": "60f6e7f247ed8c300a443363",
-            "qty": 3
+            "itemName": "Shio Ramen",
+            "qty": 2,
+            "unitPrice": 12.5
         },
         {
-            "orderItem": "60f6f3c59dfca33baa0e1d0d",
-            "qty": 2
+            "itemName": "Chicken Karage",
+            "qty": 1,
+            "unitPrice": 8.2
         }
     ],
     "subCost": 30.2
 }
 
 ### Delete order by id
-delete {{host}}/orders/60f7a7a2e9a525231c4013a5
+delete {{host}}/orders/60f7a9f9c4348226719d002e
