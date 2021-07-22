@@ -1,8 +1,11 @@
 @host = http://localhost:5000
 
 
-## Get items
+### Get items
 get {{host}}/items/
+
+### Get item
+get {{host}}/items/60f6e7f247ed8c300a443363
 
 ### Create item
 post {{host}}/items/

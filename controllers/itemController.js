@@ -10,6 +10,16 @@ const getItems = async (req, res) => {
     }
 };
 
+const getItem = async (req, res) => {
+    const { id: _id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return res.status(404).send('Cannot find item')
+    };
+
+    const item = await Item.findById(_id);
+    res.json(item);
+}
+
 const createItem = async (req, res) => {
     const item = new Item(req.body);
     
@@ -44,6 +54,7 @@ const deleteItem = async (req, res) => {
 
 module.exports = {
     getItems,
+    getItem,
     createItem,
     updateItem,
     deleteItem

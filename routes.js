@@ -11,9 +11,10 @@ router.delete('/categories/:id', deleteCategory);
 
 
 // Item routes
-const { getItems, createItem, updateItem, deleteItem } = require('./controllers/itemController.js');
+const { getItems, getItem, createItem, updateItem, deleteItem } = require('./controllers/itemController.js');
 
 router.get('/items/', getItems);
+router.get('/items/:id', getItem);
 router.post('/items/', createItem);
 router.put('/items/:id', updateItem);
 router.delete('/items/:id', deleteItem);
@@ -25,6 +26,6 @@ const { getOrders, getOrder, createOrder, deleteOrder } = require('./controllers
 router.get('/orders/', getOrders);
 router.get('/order/:id', getOrder);
 router.post('/order/', createOrder);
-router.delete('/orders/', deleteOrder);
+router.delete('/orders/:id', deleteOrder);
 
 module.exports = router;

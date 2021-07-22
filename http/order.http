@@ -15,11 +15,17 @@ Content-Type: application/json
     "takeAway": true,
     "instruction": "i am hungry af",
     "orderItems": [
-        {"60f6f2fef98e753b5080bf27"},
-        {"60f6f3c59dfca33baa0e1d0d"}
+        {
+            "orderItem": "60f6e7f247ed8c300a443363",
+            "qty": 3
+        },
+        {
+            "orderItem": "60f6f3c59dfca33baa0e1d0d",
+            "qty": 2
+        }
     ],
-    "subCost": 40.02,
+    "subCost": 30.2
 }
 
 ### Delete order by id
-delete {{host}}/orders/
+delete {{host}}/orders/60f7a7a2e9a525231c4013a5

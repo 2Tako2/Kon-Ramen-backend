@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const OrderSchema = new Schema({
     completed: {
         type: Boolean,
@@ -20,11 +21,22 @@ const OrderSchema = new Schema({
     instruction: {
         type: String
     },
+    // orderItems: [
+    //     {
+    //         itemId: {
+    //             type: objectId,
+    //             ref: "item"
+    //         },
+    //         qty: Number
+    //     }
+    // ]
     orderItems: [
         {
-            type: Schema.Types.ObjectId,
-            required: [ true, 'Order is missing items'],
-            ref: 'OrderItem'
+            orderItem: {
+                type: Schema.Types.ObjectId,
+                ref: "Item"
+            },
+            qty: Number,
         }
     ],
     UserId: {
