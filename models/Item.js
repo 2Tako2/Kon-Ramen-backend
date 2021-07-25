@@ -26,11 +26,11 @@ const ItemSchema = new Schema({
     cloudinaryId: String
 })
 
-// ItemSchema.post('save', async (item, next) => {
-//     const category = await Category.findOne({_id: item.category});
-//     category.products.push(item._id);
-//     category.save();
-//     next();
-// })
+ItemSchema.post('save', async (item, next) => {
+    const category = await Category.findOne({_id: item.category});
+    category.products.push(item._id);
+    category.save();
+    next();
+})
 
 module.exports = mongoose.model('Item', ItemSchema)

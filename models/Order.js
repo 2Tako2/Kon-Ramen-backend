@@ -25,10 +25,10 @@ const OrderSchema = new Schema({
         {
             itemName: String,
             unitPrice: Number,
-            qty: {
-                type: Number,
-                min: 1
-            },
+            // qty: {
+            //     type: Number,
+            //     min: 1
+            // },
             ready: Boolean 
         }
     ],
@@ -36,7 +36,7 @@ const OrderSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    subCost: {
+    subTotal: {
         type: Number,
         required: [ true, 'Order is missing a sub cost']
     },

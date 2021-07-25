@@ -7,7 +7,7 @@ get {{host}}/orders/
 get {{host}}/orders/
 
 ### Create order
-post {{host}}/order/
+post {{host}}/orders/
 Content-Type: application/json
 
 {
@@ -17,17 +17,15 @@ Content-Type: application/json
     "orderItems": [
         {
             "itemName": "Shio Ramen",
-            "qty": 2,
             "unitPrice": 12.5
         },
         {
             "itemName": "Chicken Karage",
-            "qty": 1,
             "unitPrice": 8.2
         }
     ],
-    "subCost": 30.2
+    "subTotal": 30.2
 }
 
 ### Delete order by id
-delete {{host}}/orders/60f7a9f9c4348226719d002e
+delete {{host}}/orders/60f984fa3ec3b7025f2adf2a

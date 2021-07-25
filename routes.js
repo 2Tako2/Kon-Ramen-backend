@@ -20,7 +20,9 @@ router.get('/items/:id', getItem);
 router.put('/items/:id', updateItem);
 router.delete('/items/:id', deleteItem);
 
-
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
 const upload = require('./utils/multer.js');
 const cloudinary = require('./utils/cloudinary.js');
 router.post('/items/', upload.single('thumbnail'), async (req, res) => {
@@ -38,13 +40,16 @@ router.post('/items/', upload.single('thumbnail'), async (req, res) => {
     .then(item => res.status(201).send(item))
     .catch(err => res.status(422).send(err))
 });
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
 
 // Order routes
 const { getOrders, getOrder, createOrder, deleteOrder } = require('./controllers/orderController.js');
 
 router.get('/orders/', getOrders);
-router.get('/order/:id', getOrder);
-router.post('/order/', createOrder);
+router.get('/orders/:id', getOrder);
+router.post('/orders/', createOrder);
 router.delete('/orders/:id', deleteOrder);
 
 module.exports = router;

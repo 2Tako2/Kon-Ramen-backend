@@ -9,7 +9,7 @@ post {{host}}/categories/
 Content-Type: application/json
 
 {
-    "name": "Main"
+    "name": "Drink"
 }
 
 ### Update category by id
@@ -21,4 +21,4 @@ Content-Type: application/json
 }
 
 ### Delete category by id
-delete {{host}}/categories/60fbb0540deddc060ef4ba1e
+delete {{host}}/categories/60fbb0c90deddc060ef4ba29

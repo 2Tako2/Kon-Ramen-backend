@@ -6,7 +6,11 @@ const CategorySchema = new Schema({
         type: String,
         required: [ true, "Category is missing a name"]
     },
-    products: [
+    published: {
+        type: Boolean,
+        default: false
+    },
+    items: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Item'
