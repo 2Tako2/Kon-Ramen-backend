@@ -28,7 +28,8 @@ const OrderSchema = new Schema({
             qty: {
                 type: Number,
                 min: 1
-            }
+            },
+            ready: Boolean 
         }
     ],
     UserId: {
