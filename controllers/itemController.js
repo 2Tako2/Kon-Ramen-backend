@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Item = require('../models/Item.js');
+const cloudinary = require('../utils/cloudinary.js');
 
 const getItems = async (req, res) => {
     try {
@@ -21,15 +22,24 @@ const getItem = async (req, res) => {
 }
 
 const createItem = async (req, res) => {
-    const item = new Item(req.body);
-    
-    try {
-        await item.save();
-        res.status(201).json(item);
-    } catch (err) {
-        res.status(400).json({message: err.message});
-    }
-};
+    const file = await cloudinary.uploader.upload(req.file.path)
+    console.log(file)
+    console.log(req.body)
+    Item.create({
+        name: req.body.name,
+        published: req.body.published,
+        unitPrice: req.body.unitPrice,
+        category: req.body.category,
+        description: req.body.description,
+        thumbnailUrl: file.secure_url,
+        cloudinaryId: file.public_id
+    })
+    .then(item => res.status(201).send(item))
+    .catch(err => {
+        console.log(err)
+        res.status(422).send(err)
+    })
+}
 
 const updateItem = async (req, res) => {
     const { id: _id } = req.params;

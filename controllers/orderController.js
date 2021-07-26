@@ -28,6 +28,7 @@ const createOrder = async (req, res) => {
         await order.save();
         res.status(201).json(order);
     } catch (err) {
+        console.log(err.message)
         res.status(400).json({message: err.message});
     }
 };

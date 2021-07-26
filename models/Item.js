@@ -21,12 +21,14 @@ const ItemSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: [ true, 'Item is missing a category' ],
         ref: 'Category'
-    }
+    },
+    thumbnailUrl: String,
+    cloudinaryId: String
 })
 
 ItemSchema.post('save', async (item, next) => {
-    const category = await Category.findOne({_id: item.category});
-    category.products.push(item._id);
+    const category = await Category.findOne({_id: item.category._id});
+    category.items.push(item._id);
     category.save();
     next();
 })
