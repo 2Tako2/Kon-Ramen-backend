@@ -30,11 +30,11 @@ router.post('/orders/', createOrder);
 router.delete('/orders/:id', deleteOrder);
 
 // User routes
-const { createUser, signIn, signOut, getUser } = require('./controllers/userController.js');
-router.get('users/sign_up', createUser);
-router.get('users/sign_in', signIn);
-router.get('users/sign_out', signOut);
-router.get('users/user', getUser);
+const { register, login, logout, getUser } = require('./controllers/userController.js');
+router.post('users/register', register);
+router.post('users/login', login);
+router.get('users/logout', logout);
+router.get('users/', getUser);
 
 
 module.exports = router;

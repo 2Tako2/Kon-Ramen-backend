@@ -3,7 +3,7 @@ const passport = require('passport');
 const User = require('../models/User.js');
 
 
-const createUser = async(req, res) => {
+const register = async(req, res) => {
     User.register(req.body, req.body.passport, (err, user) => {
         if (err) {
             res.status(401).send({message: err.message})
@@ -15,12 +15,12 @@ const createUser = async(req, res) => {
     })
 };
 
-const signIn = async(req, res) => {
+const login = async(req, res) => {
     res.status(200).send({username: req.user.username, _id: req.body._id})
 
 };
 
-const signOut = async(req, res) => {
+const logout = async(req, res) => {
     req.logout()
     res.send(200)
 };
@@ -34,8 +34,8 @@ const getUser = async(req, res) => {
 }
 
 module.exports = {
-    createUser,
-    signIn,
-    signOut,
+    register,
+    login,
+    logout,
     getUser
 }
