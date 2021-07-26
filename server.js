@@ -3,13 +3,33 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const passport = require('passport');
+
 require('dotenv').config({path: './.env'});
 
 const app = express();
+
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: process.env.ORIGIN,
+    credentials: true
 }))
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: process.env.ATLAS_URI
+    })
+}))
+
+app.use(cookieParser('secret'))
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // MongoDb Atlas connection
 const uri = process.env.ATLAS_URI;
