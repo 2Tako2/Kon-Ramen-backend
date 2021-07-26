@@ -7,10 +7,16 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('passport');
+const User = require('./models/User.js');
 
 require('dotenv').config({path: './.env'});
 
 const app = express();
+
+passport.use(User.createStrategy());
+passport.serializeUser(UserModal.serializeUser());
+passport.deserializeUser(UserModal.deserializeUser());
+
 
 app.use(cors({
     origin: process.env.ORIGIN,
