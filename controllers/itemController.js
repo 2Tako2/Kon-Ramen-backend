@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Item = require('../models/Item.js');
+const cloudinary = require('../utils/cloudinary.js');
 
 const getItems = async (req, res) => {
     try {
@@ -20,26 +21,25 @@ const getItem = async (req, res) => {
     res.json(item);
 }
 
-// const createItem = async (req, res) => {
-//     const file = await cloudinary.uploader.upload(req.file.path)
-//     Item.create({
-//         published: req.body.published,
-//         name: req.body.name,
-//         unitPrice: req.body.unitPrice,
-//         description: req.body.description,
-//         imageUrl: file.secure_url,
-//         cloudinaryId: file.public_id
-//     })
-//     .then(item => res.status(201).send(item))
-//     .catch(err => res.status(422).send(err))
-//    
-    //// try {
-    ////     await item.save();
-    ////     res.status(201).json(item);
-    //// } catch (err) {
-    ////     res.status(400).json({message: err.message});
-    //// }
-// };
+const createItem = async (req, res) => {
+    const file = await cloudinary.uploader.upload(req.file.path)
+    console.log(file)
+    console.log(req.body)
+    Item.create({
+        name: req.body.name,
+        published: req.body.published,
+        unitPrice: req.body.unitPrice,
+        category: req.body.category,
+        description: req.body.description,
+        thumbnailUrl: file.secure_url,
+        cloudinaryId: file.public_id
+    })
+    .then(item => res.status(201).send(item))
+    .catch(err => {
+        console.log(err)
+        res.status(422).send(err)
+    })
+}
 
 const updateItem = async (req, res) => {
     const { id: _id } = req.params;
@@ -65,7 +65,7 @@ const deleteItem = async (req, res) => {
 module.exports = {
     getItems,
     getItem,
-    // createItem,
+    createItem,
     updateItem,
     deleteItem
 }

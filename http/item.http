@@ -32,4 +32,4 @@ Content-Type: application/json
 }
 
 ### Delete item by id
-delete {{host}}/items/60f787cfe0ec4815956a1593
+delete {{host}}/items/60fe37a5b31bbd10ff64e668
