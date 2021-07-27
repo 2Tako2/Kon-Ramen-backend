@@ -31,10 +31,16 @@ router.delete('/orders/:id', deleteOrder);
 
 // User routes
 const { register, login, logout, getUser } = require('./controllers/userController.js');
+const passport = require('passport');
+
 router.post('users/register', register);
-router.post('users/login', login);
+router.post('users/login', passport.authenticate('local'), login);
 router.get('users/logout', logout);
 router.get('users/', getUser);
 
+router.get('/testing', async(req, res) => {
+    res.status(200).send('got it')
+    console.log('got it')
+})
 
 module.exports = router;

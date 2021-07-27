@@ -20,16 +20,12 @@ Content-Type: application/json
 }
 
 ### Update item by id
-put {{host}}/items/60f6f3789dfca33baa0e1d06
+put {{host}}/items/60fed26100172a26cf07f788
 Content-Type: application/json
 
 {
-    "name": "Kon Ramen",
-    "published": true,
-    "unitPrice": 14.50,
-    "category": "60f6cdb83907ff237c7bf42a",
-    "description" : "Kon Ramen is our signiture ramen /nIt has our unique soup base"
+    "name": "Karage Chicken 8pcs"
 }
 
 ### Delete item by id
-delete {{host}}/items/60fe37a5b31bbd10ff64e668
+delete {{host}}/items/60fe43c36744c213b9b8bd19
