@@ -22,6 +22,7 @@ const getItem = async (req, res) => {
 }
 
 const createItem = async (req, res) => {
+    console.log(req.user)
     const file = await cloudinary.uploader.upload(req.file.path)
     console.log(file)
     console.log(req.body)
