@@ -6,6 +6,6 @@ post {{host}}/users/register
 Content-Type: application/json
 
 {
-    "username": "exampleuser",
+    "email": "exampleuser",
     "password": "000000"
 }

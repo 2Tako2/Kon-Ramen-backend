@@ -1,22 +1,25 @@
+// Import packages
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config({path: './.env'});
-
 const bodyParser = require('body-parser');
-
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('passport');
 
-const User = require('./models/User.js');
+// Import .env file
+require('dotenv').config({path: './.env'});
 
+
+// Passport setup
+const User = require('./models/User.js');
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Cors connection
 app.use(cors({
     origin: process.env.ORIGIN,
     credentials: true
@@ -25,6 +28,7 @@ app.use(cors({
 // MongoAtlas Uri
 const uri = process.env.ATLAS_URI;
 
+// Session connection
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -34,6 +38,7 @@ app.use(session({
     })
 }))
 
+// Passport middleware connection
 app.use(cookieParser('secret'))
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -45,10 +50,10 @@ mongoose.connect(uri, {
     useNewUrlParser: true,
     useFindAndModify: false
 })
-.then(() => console.log('Connected to MongoAtlas'))
+.then(() => ('Connected to MongoAtlas'))
 .catch(err => console.log(err))
 
-// Import router
+// Router import
 const router = require('./routes.js');
 app.use('/', router)
 

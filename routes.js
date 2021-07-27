@@ -1,15 +1,12 @@
 const router = require('express').Router();
 
-
-
 // Category routes
 const { getCategories, createCategory, updateCategory, deleteCategory } = require('./controllers/categoryController.js');
 
 router.get('/categories/', getCategories);
-router.post('/categories/', checkIfAuthorized, createCategory);
+router.post('/categories/', createCategory);
 router.put('/categories/:id', updateCategory);
 router.delete('/categories/:id', deleteCategory);
-
 
 // Item routes
 const { getItems, getItem, createItem, updateItem, deleteItem } = require('./controllers/itemController.js');
@@ -36,11 +33,6 @@ const passport = require('passport');
 router.post('/users/register', register);
 router.post('/users/login', passport.authenticate('local'), login);
 router.get('/users/logout', logout);
-router.get('/users/me', getUser);
-
-// router.get('/testing', async(req, res) => {
-//     res.status(200).send('got it')
-//     console.log('got it')
-// })
+router.get('/users/cookie', getUser);
 
 module.exports = router;
