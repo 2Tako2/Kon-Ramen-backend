@@ -10,6 +10,15 @@ const getCategories = async (req, res) => {
     }
 }
 
+const getAllCategories = async (req, res) => {
+    try {
+        const categories = await Category.find().populate('items');
+        res.status(200).json(categories);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+
 const createCategory = async (req, res) => {
     const category = req.body;
     const newCategory = new Category(category);
@@ -48,6 +57,7 @@ const deleteCategory = async (req, res) => {
 
 module.exports = {
     getCategories,
+    getAllCategories,
     createCategory,
     updateCategory,
     deleteCategory
