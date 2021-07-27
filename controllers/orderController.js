@@ -26,7 +26,7 @@ const createOrder = async (req, res) => {
     const order = new Order(req.body);
     try {
         await order.save();
-        res.status(201).json(order);
+        res.status(201).json(order).redirect('/');
     } catch (err) {
         console.log(err.message)
         res.status(400).json({message: err.message});
