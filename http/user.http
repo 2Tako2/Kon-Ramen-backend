@@ -1,0 +1,11 @@
+@host = http://localhost:5000
+
+### User register
+post {{host}}/users/register
+
+Content-Type: application/json
+
+{
+    "username": "exampleuser",
+    "password": "000000"
+}

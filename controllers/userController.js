@@ -4,11 +4,12 @@ const User = require('../models/User.js');
 
 
 const register = async(req, res) => {
-    console.log('registering')
-    User.register(req.body, req.body.passport, (err, user) => {
+    User.register(req.body, req.body.password, (err, user) => {
         if (err) {
+            console.log('nope')
             res.status(401).send({message: err.message})
         } else {
+            console.log('success')
             passport.authenticate('local')(req, res, () => {
                 res.send({_id: user.id, username: user.username})
             })
@@ -23,7 +24,7 @@ const login = async(req, res) => {
 
 const logout = async(req, res) => {
     req.logout()
-    res.send(200)
+    res.status(200).redirect('/')
 };
 
 const getUser = async(req, res) => {
