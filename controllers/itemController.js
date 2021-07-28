@@ -57,7 +57,7 @@ const deleteItem = async (req, res) => {
     };
 
     await Item.findByIdAndRemove(_id);
-    res.json({message: 'Successfully deleted item'});
+    res.status(200).send('Successfully deleted item');
 };
 
 module.exports = {

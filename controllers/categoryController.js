@@ -52,7 +52,7 @@ const deleteCategory = async (req, res) => {
         return res.status(404).send('Cannot find category');
     };
     await Category.findByIdAndRemove(_id);
-    res.json({ message: 'Successfully deleted category'});
+    res.status(200).send('Successfully deleted category');
 }
 
 module.exports = {

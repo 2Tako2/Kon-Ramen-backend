@@ -2,7 +2,7 @@
 
 
 ###  Get categories
-get {{host}}/categories/
+get {{host}}/categories/all
 
 ### Create category
 post {{host}}/categories/
@@ -13,11 +13,11 @@ Content-Type: application/json
 }
 
 ### Update category by id
-put {{host}}/categories/60fd3b75468780301cb0f39a
+put {{host}}/categories/6100e26530321c3c108cbfb2
 Content-Type: application/json
 
 {
-    "published": true
+    "published": false
 }
 
 ### Delete category by id

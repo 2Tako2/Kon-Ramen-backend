@@ -28,4 +28,4 @@ Content-Type: application/json
 }
 
 ### Delete order by id
-delete {{host}}/orders/60f984fa3ec3b7025f2adf2a
+delete {{host}}/orders/610196328e8ada254a08ab32

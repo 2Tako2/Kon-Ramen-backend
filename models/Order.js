@@ -23,12 +23,8 @@ const OrderSchema = new Schema({
     },
     orderItems: [
         {
-            itemName: String,
+            name: String,
             unitPrice: Number,
-            // qty: {
-            //     type: Number,
-            //     min: 1
-            // },
             ready: Boolean 
         }
     ],
