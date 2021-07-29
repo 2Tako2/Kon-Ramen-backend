@@ -1,0 +1,31 @@
+@host = http://localhost:5000
+
+
+### Get items
+get {{host}}/items/
+
+### Get item
+get {{host}}/items/60f6e7f247ed8c300a443363
+
+### Create item
+post {{host}}/items/
+Content-Type: application/json
+
+{
+    "name": "Chicken Karage (8pc)",
+    "published": true,
+    "unitPrice": 8.5,
+    "description": "Japnese style fried Chicken",
+    "category": "60f6cdcb3907ff237c7bf42c"
+}
+
+### Update item by id
+put {{host}}/items/60fed26100172a26cf07f788
+Content-Type: application/json
+
+{
+    "name": "Karage Chicken 8pcs"
+}
+
+### Delete item by id
+delete {{host}}/items/60fe43c36744c213b9b8bd19

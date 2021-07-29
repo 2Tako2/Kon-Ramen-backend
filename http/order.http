@@ -1,0 +1,31 @@
+@host = http://localhost:5000
+
+### Get orders
+get {{host}}/orders/
+
+### Get order by id
+get {{host}}/orders/
+
+### Create order
+post {{host}}/orders/
+Content-Type: application/json
+
+{
+    "completed": false,
+    "takeAway": true,
+    "instruction": "i am hungry af",
+    "orderItems": [
+        {
+            "itemName": "Shio Ramen",
+            "unitPrice": 12.5
+        },
+        {
+            "itemName": "Chicken Karage",
+            "unitPrice": 8.2
+        }
+    ],
+    "subTotal": 30.2
+}
+
+### Delete order by id
+delete {{host}}/orders/610196328e8ada254a08ab32
