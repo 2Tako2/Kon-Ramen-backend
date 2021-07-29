@@ -4,7 +4,7 @@
 get {{host}}/orders/
 
 ### Get order by id
-get {{host}}/orders/
+get {{host}}/orders/610252c8a63dd909763b9ee2
 
 ### Create order
 post {{host}}/orders/

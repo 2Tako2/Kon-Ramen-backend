@@ -25,8 +25,8 @@ const getOrder = async (req, res) => {
 const createOrder = async (req, res) => {
     const order = new Order(req.body);
     try {
-        await order.save();
-        res.status(201).json(order).redirect('/');
+        await order.save()
+            .then(o => res.status(201).send(o._id))
     } catch (err) {
         console.log(err.message)
         res.status(400).json({message: err.message});
