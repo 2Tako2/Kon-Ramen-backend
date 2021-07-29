@@ -29,14 +29,19 @@ app.use(cors({
 const uri = process.env.ATLAS_URI;
 
 // Session connection
+app.set('trust proxy', 1);
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true,
+    cookie: {
+        sameSite: 'none',
+        secure: true
+    },
     store: MongoStore.create({
         mongoUrl: uri
     })
-}))
+}));
 
 // Passport middleware connection
 app.use(cookieParser('secret'))
