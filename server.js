@@ -29,7 +29,7 @@ app.use(cors({
 const uri = process.env.ATLAS_URI;
 
 // Session connection
-app.set('trust proxy', 1);
+app.set("trust proxy", 1);
 app.use(session({
     secret: 'secret',
     resave: true,
