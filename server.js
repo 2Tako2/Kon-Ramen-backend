@@ -55,7 +55,7 @@ mongoose.connect(uri, {
     useNewUrlParser: true,
     useFindAndModify: false
 })
-.then(() => ('Connected to MongoAtlas'))
+.then(() => console.log('Connected to MongoAtlas'))
 .catch(err => console.log(err))
 
 // Router import
